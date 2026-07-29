@@ -1,1 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# macOS
 .DS_Store
+
+# Logs
+*.log
+
+# Environment Variables
+.env
+.env.*
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+
+# Docker
+*.tar
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Coverage
+.coverage
+htmlcov/
+
+# Pytest
+.pytest_cache/
+
+# Misc
+*.sqlite3
