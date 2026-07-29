@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legacy-admin-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: legacy-admin-service
+  template:
+    metadata:
+      labels:
+        app: legacy-admin-service
+    spec:
+      containers:
+      - name: legacy-admin-service
+        image: your-legacy-admin-service-image
+        ports:
+        - containerPort: 5002

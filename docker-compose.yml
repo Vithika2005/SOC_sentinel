@@ -1,15 +1,46 @@
+version: '3.8'
 services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
 
-    nginx
+  auth-service:
+    build:
+      context: ./enterprise/auth-service/
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
 
-    auth-service
+  api-service:
+    build:
+      context: ./enterprise/api-service/
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5000"
 
-    api-service
+  file-service:
+    build:
+      context: ./enterprise/file-service/
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5000"
 
-    file-service
+  legacy-admin:
+    build:
+      context: ./enterprise/legacy-admin/
+      dockerfile: Dockerfile
+    ports:
+      - "5004:5000"
 
-    legacy-admin
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
 
-    postgres
-
-    redis
+  redis:
+    image: redis:latest
