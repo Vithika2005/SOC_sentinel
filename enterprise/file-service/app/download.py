@@ -1,21 +1,14 @@
-from flask import send_file, abort
+#SentinelX/enterprise/file-service/app/download.py
+import os
+from flask import send_from_directory, abort, jsonify
 from app.auth import token_required
-from app.database import init_db
-from app.shared.config import app_config
+from app.shared.config import Config
 
-app = Flask(__name__)
-app.config.from_object(app_config['development'])
-init_db(app)
+UPLOAD_FOLDER = Config.UPLOAD_FOLDER
 
-@app.route('/download/<filename>', methods=['GET'])
 @token_required
 def download_file(current_user, filename):
     try:
-        # Construct the file path based on the filename
-        file_path = '/path/to/save/' + filename
-        
-        # Send the file for download
-        return send_file(file_path)
-    
+        return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
     except FileNotFoundError:
-        abort(404)
+        return jsonify({'message': 'File not found'}), 404

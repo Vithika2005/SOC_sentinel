@@ -1,27 +1,30 @@
-from flask import request, jsonify
-from app.auth import token_required
+#SentinelX/enterprise/legacy-admin/app/users.py
+from flask import Blueprint, request, jsonify
+from sqlalchemy import text
+from app.database import db
 
-@app.route('/users', methods=['POST'])
-@token_required
+users_bp = Blueprint('users', __name__)
+
+@users_bp.route('/users', methods=['POST'])
 def create_user():
-    data = request.get_json()
-    username = data.get('username')
-    password = data.get('password')
+    data = request.get_json() or {}
+    username = data.get('username', '')
+    password = data.get('password', '')
 
     if not username or not password:
-        return jsonify({'message': 'Username and password are required'}), 400
+        return jsonify({'message': 'Username and password required'}), 400
 
-    # Here you would typically save the user to the database
-    # For demonstration, we'll just return a success message
-    return jsonify({'message': f'User {username} created successfully'}), 201
+    # SQL Injection flaw (Flagged by SAST)
+    query = f"INSERT INTO user (username, password) VALUES ('{username}', '{password}')"
+    
+    try:
+        db.session.execute(text(query))
+        db.session.commit()
+        return jsonify({'message': f'User {username} created successfully'}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e), 'executed_query': query}), 500
 
-@app.route('/users', methods=['GET'])
-@token_required
+@users_bp.route('/users', methods=['GET'])
 def get_users():
-    # Here you would typically fetch users from the database
-    # For demonstration, we'll just return a list of dummy users
-    users = [
-        {'id': 1, 'username': 'user1'},
-        {'id': 2, 'username': 'user2'}
-    ]
-    return jsonify({'users': users}), 200
+    return jsonify({'users': [{'id': 1, 'username': 'admin'}]}), 200

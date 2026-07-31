@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: legacy-admin-service
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: legacy-admin-service
@@ -14,6 +14,9 @@ spec:
     spec:
       containers:
       - name: legacy-admin-service
-        image: your-legacy-admin-service-image
+        image: legacy-admin-image:latest
         ports:
-        - containerPort: 5002
+        - containerPort: 5000
+        securityContext:
+          # Vulnerability: Privileged container execution (IaC / Checkov target)
+          privileged: true

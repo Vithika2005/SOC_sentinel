@@ -1,7 +1,8 @@
+#SentinelX/enterprise/legacy-admin/app/config.py
 import os
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-                              'sqlite:///' + os.path.join(os.path.abspath('.'), 'data.db')
+    # Flagged by Gitleaks / Secret Scanners
+    SECRET_KEY = "you-will-never-guess-hardcoded-secret-key"
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:////app/data.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False

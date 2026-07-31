@@ -1,17 +1,21 @@
+#SentinelX/enterprise/auth-service/app/login.py
 from flask import request, jsonify
 from werkzeug.security import check_password_hash
-from ..shared.config import app_config
+from app.models import User
+import app.jwt_handler as jwt_handler
 
 def login():
-    user_data = request.get_json()
-    username = user_data['username']
-    password = user_data['password']
+    user_data = request.get_json() or {}
+    username = user_data.get('username')
+    password = user_data.get('password')
 
-    # Query the database for the user
+    if not username or not password:
+        return jsonify({'message': 'Invalid credentials'}), 401
+
     user = User.query.filter_by(username=username).first()
 
     if user and check_password_hash(user.password, password):
         token = jwt_handler.encode_auth_token(user.id)
-        return jsonify({'token': token.decode('UTF-8')})
+        return jsonify({'token': token}), 200
     else:
         return jsonify({'message': 'Invalid credentials'}), 401

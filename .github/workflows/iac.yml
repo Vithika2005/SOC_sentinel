@@ -1,23 +1,30 @@
-name: IAC Scan
+name: IaC Scan
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   iac:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          pip install checkov
+      - name: Install Checkov
+        run: pip install checkov
 
-      - name: Run Checkov IAC scan
+      - name: Run Checkov Scan (Output JSON)
         run: |
-          checkov --directory terraform/
+          mkdir -p reports
+          checkov -d enterprise/terraform/ -o json > reports/checkov-tf-results.json || true
+          checkov -d enterprise/kubernetes/ -o json > reports/checkov-k8s-results.json || true
+
+      - name: Upload IaC Report Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: iac-reports
+          path: reports/checkov-*.json

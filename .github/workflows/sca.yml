@@ -1,23 +1,29 @@
 name: SCA Scan
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   sca:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          pip install dependency-check-tool
+      - name: Install Safety Tool
+        run: pip install safety
 
-      - name: Run Dependency Check SCA scan
+      - name: Run Safety Check (Output JSON)
         run: |
-          dependency-check --scan .
+          mkdir -p reports
+          safety check -r enterprise/legacy-admin/requirements.txt --json > reports/safety-results.json || true
+
+      - name: Upload SCA Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sca-report
+          path: reports/safety-results.json

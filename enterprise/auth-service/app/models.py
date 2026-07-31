@@ -1,4 +1,5 @@
-from ..shared.config import db
+#SentinelX/enterprise/auth-service/app/models.py
+from app.database import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

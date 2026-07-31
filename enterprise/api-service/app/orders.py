@@ -1,14 +1,8 @@
 from flask import request, jsonify
-from app.auth import token_required
+from app.database import db
 from app.models import Order
-from app.database import init_db
-from app.shared.config import app_config
+from app.auth import token_required
 
-app = Flask(__name__)
-app.config.from_object(app_config['development'])
-init_db(app)
-
-@app.route('/orders', methods=['POST'])
 @token_required
 def create_order(current_user):
     order_data = request.get_json()
