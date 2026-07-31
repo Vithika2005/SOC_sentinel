@@ -1,0 +1,1091 @@
+[
+  {
+    "event_type": "security_finding",
+    "scanner": "gitleaks",
+    "type": "Secrets",
+    "rule_id": "hashicorp-tf-password",
+    "location": "enterprise/api-service/README.md:55",
+    "description": "HashiCorp Terraform password field",
+    "severity": "CRITICAL"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "gitleaks",
+    "type": "Secrets",
+    "rule_id": "hashicorp-tf-password",
+    "location": "enterprise/auth-service/README.md:55",
+    "description": "HashiCorp Terraform password field",
+    "severity": "CRITICAL"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "gitleaks",
+    "type": "Secrets",
+    "rule_id": "generic-api-key",
+    "location": "enterprise/auth-service/README.md:63",
+    "description": "Generic API Key",
+    "severity": "CRITICAL"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_24",
+    "description": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_23",
+    "description": "Ensure every security group and rule has a description",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_382",
+    "description": "Ensure no security groups allow egress from 0.0.0.0:0 to port -1",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_5",
+    "description": "Ensure that Security Groups are attached to another resource",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_62",
+    "description": "Ensure S3 buckets should have event notifications enabled",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_62",
+    "description": "Ensure S3 buckets should have event notifications enabled",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_6",
+    "description": "Ensure that S3 bucket has a Public Access block",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_6",
+    "description": "Ensure that S3 bucket has a Public Access block",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_18",
+    "description": "Ensure the S3 bucket has access logging enabled",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_18",
+    "description": "Ensure the S3 bucket has access logging enabled",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_144",
+    "description": "Ensure that S3 bucket has cross-region replication enabled",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_144",
+    "description": "Ensure that S3 bucket has cross-region replication enabled",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_145",
+    "description": "Ensure that S3 buckets are encrypted with KMS by default",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_145",
+    "description": "Ensure that S3 buckets are encrypted with KMS by default",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "semgrep",
+    "type": "SAST",
+    "rule_id": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
+    "file": "enterprise/legacy-admin/app/main.py",
+    "line": 23,
+    "severity": "WARNING"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "semgrep",
+    "type": "SAST",
+    "rule_id": "python.flask.security.audit.debug-enabled.debug-enabled",
+    "file": "enterprise/legacy-admin/app/main.py",
+    "line": 23,
+    "severity": "WARNING"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_21",
+    "description": "The default namespace should not be used",
+    "file": "/enterprise/kubernetes/ingress.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_21",
+    "description": "The default namespace should not be used",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_9",
+    "description": "Readiness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_12",
+    "description": "Memory requests should be set",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_28",
+    "description": "Minimize the admission of containers with the NET_RAW capability",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_30",
+    "description": "Apply security context to your containers",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_37",
+    "description": "Minimize the admission of containers with capabilities assigned",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_14",
+    "description": "Image Tag should be fixed - not latest or blank",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_29",
+    "description": "Apply security context to your pods and containers",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_8",
+    "description": "Liveness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_38",
+    "description": "Ensure that Service Account Tokens are only mounted where necessary",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_23",
+    "description": "Minimize the admission of root containers",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_13",
+    "description": "Memory limits should be set",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_11",
+    "description": "CPU limits should be set",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_10",
+    "description": "CPU requests should be set",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_20",
+    "description": "Containers should not run with allowPrivilegeEscalation",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_22",
+    "description": "Use read-only filesystem for containers where possible",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_40",
+    "description": "Containers should run as a high UID to avoid host conflict",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_43",
+    "description": "Image should use digest",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_31",
+    "description": "Ensure that the seccomp profile is set to docker/default or runtime/default",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_21",
+    "description": "The default namespace should not be used",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_9",
+    "description": "Readiness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_12",
+    "description": "Memory requests should be set",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_28",
+    "description": "Minimize the admission of containers with the NET_RAW capability",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_30",
+    "description": "Apply security context to your containers",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_37",
+    "description": "Minimize the admission of containers with capabilities assigned",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_14",
+    "description": "Image Tag should be fixed - not latest or blank",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_29",
+    "description": "Apply security context to your pods and containers",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_8",
+    "description": "Liveness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_38",
+    "description": "Ensure that Service Account Tokens are only mounted where necessary",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_23",
+    "description": "Minimize the admission of root containers",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_13",
+    "description": "Memory limits should be set",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_11",
+    "description": "CPU limits should be set",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_35",
+    "description": "Prefer using secrets as files over secrets as environment variables",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_10",
+    "description": "CPU requests should be set",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_20",
+    "description": "Containers should not run with allowPrivilegeEscalation",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_22",
+    "description": "Use read-only filesystem for containers where possible",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_40",
+    "description": "Containers should run as a high UID to avoid host conflict",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_43",
+    "description": "Image should use digest",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_31",
+    "description": "Ensure that the seccomp profile is set to docker/default or runtime/default",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_21",
+    "description": "The default namespace should not be used",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_9",
+    "description": "Readiness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_12",
+    "description": "Memory requests should be set",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_28",
+    "description": "Minimize the admission of containers with the NET_RAW capability",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_30",
+    "description": "Apply security context to your containers",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_37",
+    "description": "Minimize the admission of containers with capabilities assigned",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_14",
+    "description": "Image Tag should be fixed - not latest or blank",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_29",
+    "description": "Apply security context to your pods and containers",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_8",
+    "description": "Liveness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_38",
+    "description": "Ensure that Service Account Tokens are only mounted where necessary",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_23",
+    "description": "Minimize the admission of root containers",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_13",
+    "description": "Memory limits should be set",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_11",
+    "description": "CPU limits should be set",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_10",
+    "description": "CPU requests should be set",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_20",
+    "description": "Containers should not run with allowPrivilegeEscalation",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_22",
+    "description": "Use read-only filesystem for containers where possible",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_40",
+    "description": "Containers should run as a high UID to avoid host conflict",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_43",
+    "description": "Image should use digest",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_31",
+    "description": "Ensure that the seccomp profile is set to docker/default or runtime/default",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_21",
+    "description": "The default namespace should not be used",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_9",
+    "description": "Readiness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_12",
+    "description": "Memory requests should be set",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_28",
+    "description": "Minimize the admission of containers with the NET_RAW capability",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_30",
+    "description": "Apply security context to your containers",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_37",
+    "description": "Minimize the admission of containers with capabilities assigned",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_14",
+    "description": "Image Tag should be fixed - not latest or blank",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_29",
+    "description": "Apply security context to your pods and containers",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_8",
+    "description": "Liveness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_38",
+    "description": "Ensure that Service Account Tokens are only mounted where necessary",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_23",
+    "description": "Minimize the admission of root containers",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_13",
+    "description": "Memory limits should be set",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_11",
+    "description": "CPU limits should be set",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_10",
+    "description": "CPU requests should be set",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_20",
+    "description": "Containers should not run with allowPrivilegeEscalation",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_22",
+    "description": "Use read-only filesystem for containers where possible",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_40",
+    "description": "Containers should run as a high UID to avoid host conflict",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_43",
+    "description": "Image should use digest",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_31",
+    "description": "Ensure that the seccomp profile is set to docker/default or runtime/default",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_21",
+    "description": "The default namespace should not be used",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_16",
+    "description": "Container should not be privileged",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_9",
+    "description": "Readiness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_12",
+    "description": "Memory requests should be set",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_28",
+    "description": "Minimize the admission of containers with the NET_RAW capability",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_37",
+    "description": "Minimize the admission of containers with capabilities assigned",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_14",
+    "description": "Image Tag should be fixed - not latest or blank",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_29",
+    "description": "Apply security context to your pods and containers",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_8",
+    "description": "Liveness Probe Should be Configured",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_38",
+    "description": "Ensure that Service Account Tokens are only mounted where necessary",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_23",
+    "description": "Minimize the admission of root containers",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_13",
+    "description": "Memory limits should be set",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_11",
+    "description": "CPU limits should be set",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_10",
+    "description": "CPU requests should be set",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_20",
+    "description": "Containers should not run with allowPrivilegeEscalation",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_22",
+    "description": "Use read-only filesystem for containers where possible",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_40",
+    "description": "Containers should run as a high UID to avoid host conflict",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_43",
+    "description": "Image should use digest",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_K8S_31",
+    "description": "Ensure that the seccomp profile is set to docker/default or runtime/default",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_K8S_6",
+    "description": "Minimize the admission of pods which lack an associated NetworkPolicy",
+    "file": "/enterprise/kubernetes/api-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_K8S_6",
+    "description": "Minimize the admission of pods which lack an associated NetworkPolicy",
+    "file": "/enterprise/kubernetes/postgres.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_K8S_6",
+    "description": "Minimize the admission of pods which lack an associated NetworkPolicy",
+    "file": "/enterprise/kubernetes/auth-deployment.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_K8S_6",
+    "description": "Minimize the admission of pods which lack an associated NetworkPolicy",
+    "file": "/enterprise/kubernetes/redis.yaml",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_K8S_6",
+    "description": "Minimize the admission of pods which lack an associated NetworkPolicy",
+    "file": "/enterprise/kubernetes/legacy-deployment.yaml",
+    "severity": "MEDIUM"
+  }
+]

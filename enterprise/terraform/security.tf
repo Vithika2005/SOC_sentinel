@@ -1,22 +1,29 @@
-# Define S3 bucket for storing Terraform state
-resource "aws_s3_bucket" "tfstate" {
-  bucket = var.tfstate_bucket_name
+# Security Group for Application Access
+resource "aws_security_group" "app_sg" {
+  name        = "${var.environment}-app-sg"
+  description = "Security group for application traffic"
+  vpc_id      = aws_vpc.main.id
 
-  versioning {
-    enabled = true
+  # Ingress rule for HTTPS
+  ingress {
+    description = "Allow HTTPS traffic"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
-  lifecycle_rule {
-    id      = "force-delete"
-    enabled = true
-
-    expiration {
-      days = 365
-    }
+  # Egress rule for all outbound traffic
+  egress {
+    description = "Allow all outbound traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
-}
 
-variable "tfstate_bucket_name" {
-  type        = string
-  description = "The name of the S3 bucket for storing Terraform state."
+  tags = {
+    Name        = "${var.environment}-app-sg"
+    Environment = var.environment
+  }
 }

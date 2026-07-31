@@ -1,46 +1,38 @@
 version: '3.8'
+
 services:
-  nginx:
-    image: nginx:latest
+  postgres:
+    image: postgres:15-alpine
+    container_name: local-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: enterprise_db
     ports:
-      - "80:80"
-    volumes:
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - "5432:5432"
 
   auth-service:
-    build:
-      context: ./enterprise/auth-service/
-      dockerfile: Dockerfile
+    build: ./enterprise/auth-service
+    container_name: local-auth
     ports:
-      - "5001:5000"
+      - "8080:5000"
+    depends_on:
+      - postgres
 
   api-service:
-    build:
-      context: ./enterprise/api-service/
-      dockerfile: Dockerfile
+    build: ./enterprise/api-service
+    container_name: local-api
     ports:
-      - "5002:5000"
-
-  file-service:
-    build:
-      context: ./enterprise/file-service/
-      dockerfile: Dockerfile
-    ports:
-      - "5003:5000"
+      - "8081:5000"
+    depends_on:
+      - postgres
 
   legacy-admin:
-    build:
-      context: ./enterprise/legacy-admin/
-      dockerfile: Dockerfile
+    build: ./enterprise/legacy-admin
+    container_name: legacy-admin-container
     ports:
       - "5004:5000"
-
-  postgres:
-    image: postgres:latest
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
-
-  redis:
-    image: redis:latest
+      - PYTHONPATH=/app
+    depends_on:
+      - postgres

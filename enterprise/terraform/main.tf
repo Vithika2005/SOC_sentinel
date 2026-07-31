@@ -1,23 +1,20 @@
-provider "aws" {
-  region = var.region
+terraform {
+  required_version = ">= 1.0.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
 }
 
-# Vulnerability: Open Ingress Rule (IaC / Checkov target)
-resource "aws_security_group" "legacy_sg" {
-  name        = "legacy-vulnerable-sg"
-  description = "Security group with unrestricted inbound access"
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+provider "aws" {
+  region                      = "us-east-1"
+  access_key                  = "mock_key"
+  secret_key                  = "mock_secret"
+  
+  # Tell Terraform NOT to contact real AWS APIs
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_metadata_api_check     = true
 }
