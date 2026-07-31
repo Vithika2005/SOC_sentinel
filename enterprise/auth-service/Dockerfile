@@ -2,10 +2,11 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY enterprise/auth-service/app/ app/
-COPY enterprise/auth-service/tests/ tests/
+COPY app/ app/
+COPY tests/ tests/
 
-CMD ["python", "app/main.py"]
+CMD ["python", "-m", "app.main"]

@@ -1,22 +1,11 @@
-# Define S3 bucket for storing Terraform state
-resource "aws_s3_bucket" "tfstate" {
-  bucket = var.tfstate_bucket_name
+resource "aws_security_group_rule" "allow_http" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
 
-  versioning {
-    enabled = true
-  }
+  security_group_id = aws_security_group.example_sg.id
 
-  lifecycle_rule {
-    id      = "force-delete"
-    enabled = true
-
-    expiration {
-      days = 365
-    }
-  }
-}
-
-variable "tfstate_bucket_name" {
-  type        = string
-  description = "The name of the S3 bucket for storing Terraform state."
+  # Intentional vulnerability
+  cidr_blocks = ["0.0.0.0/0"]
 }
