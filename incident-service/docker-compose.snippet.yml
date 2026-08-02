@@ -1,0 +1,20 @@
+# Add this service block into your existing docker-compose.yml,
+# alongside your kafka, postgres, and normalizer services.
+
+  incident-service:
+    build: ./sentinelx/incident-service
+    container_name: incident-service
+    env_file:
+      - ./sentinelx/incident-service/.env
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_INPUT_TOPIC: normalized-events   # <-- change to match your Normalizer's actual output topic
+      KAFKA_OUTPUT_TOPIC: incidents
+      DATABASE_URL: postgresql+asyncpg://sentinelx:sentinelx@postgres:5432/sentinelx
+    ports:
+      - "8001:8000"
+    depends_on:
+      - kafka
+      - postgres
+    networks:
+      - sentinelx-net
