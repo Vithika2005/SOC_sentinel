@@ -1,41 +1,57 @@
-version: '3.8'
+version: "3.8"
 
 services:
+
   postgres:
     image: postgres:15-alpine
     container_name: local-postgres
+
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_DB: enterprise_db
+
     ports:
       - "5432:5432"
+
+    restart: unless-stopped
+
 
   auth-service:
     build: ./enterprise/auth-service
     container_name: local-auth
+
     ports:
       - "8080:5000"
+
     depends_on:
       - postgres
+
 
   api-service:
     build: ./enterprise/api-service
     container_name: local-api
+
     ports:
       - "8081:5000"
+
     depends_on:
       - postgres
+
 
   legacy-admin:
     build: ./enterprise/legacy-admin
     container_name: legacy-admin-container
+
+    environment:
+      PYTHONPATH: /app
+
     ports:
       - "5004:5000"
-    environment:
-      - PYTHONPATH=/app
+
     depends_on:
       - postgres
+
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
@@ -52,11 +68,8 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
 
       KAFKA_LISTENERS: "PLAINTEXT://:29092,CONTROLLER://:29093,PLAINTEXT_HOST://:9092"
-
       KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092"
-
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT"
-
       KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT"
 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -65,3 +78,30 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
 
       CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+
+    restart: unless-stopped
+
+
+  incident-service:
+    build:
+      context: ./incident-service
+
+    container_name: incident-service
+
+    env_file:
+      - ./incident-service/.env
+
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      KAFKA_INPUT_TOPIC: sentinelx-security-events
+      KAFKA_OUTPUT_TOPIC: incidents
+      DATABASE_URL: postgresql+asyncpg://postgres:mysecretpassword@postgres:5432/enterprise_db
+
+    ports:
+      - "8001:8000"
+
+    depends_on:
+      - kafka
+      - postgres
+
+    restart: unless-stopped

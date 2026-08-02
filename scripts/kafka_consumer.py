@@ -1,43 +1,29 @@
 import json
 from kafka import KafkaConsumer
 
-KAFKA_TOPIC = "sentinelx-security-events"
-KAFKA_SERVER = "localhost:9092"
+consumer = KafkaConsumer(
+    "sentinelx-security-events",
+    bootstrap_servers="localhost:9092",
+    auto_offset_reset="earliest",
+    enable_auto_commit=True,
+    group_id="sentinelx-group",
+    value_deserializer=lambda x: json.loads(x.decode("utf-8"))
+)
 
+print("Listening...")
 
-def run_consumer():
+for message in consumer:
 
-    print(f"Connecting to {KAFKA_SERVER}")
+    event = message.value
 
-    consumer = KafkaConsumer(
-        KAFKA_TOPIC,
-        bootstrap_servers=[KAFKA_SERVER],
-        auto_offset_reset="earliest",
-        enable_auto_commit=True,
-        group_id="sentinelx-group",
-        value_deserializer=lambda x: json.loads(x.decode("utf-8"))
-    )
+    finding = event["data"]
 
-    print("Waiting for events...\n")
+    print("=" * 60)
 
-    for message in consumer:
+    print("Finding ID :", finding.get("id"))
 
-        event = message.value
+    print("Severity   :", finding.get("severity"))
 
-        finding = event["data"]
+    print("Tool       :", finding.get("tool"))
 
-        print("=" * 70)
-        print("EVENT RECEIVED")
-        print("=" * 70)
-
-        print("Scanner    :", finding.get("scanner"))
-        print("Type       :", finding.get("type"))
-        print("Severity   :", finding.get("severity"))
-        print("Rule ID    :", finding.get("rule_id"))
-        print("Description:", finding.get("description"))
-        print("Location   :", finding.get("location", finding.get("file")))
-        print()
-
-
-if __name__ == "__main__":
-    run_consumer()
+    print("Title      :", finding.get("title"))
