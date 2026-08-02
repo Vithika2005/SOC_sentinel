@@ -7,10 +7,9 @@ class PipelineService:
     Service responsible for executing the LangGraph pipeline.
     """
 
-    @staticmethod
-    def execute(incident: dict) -> dict:
+    def execute(self, incident: dict) -> dict:
         """
-        Execute the complete LangGraph pipeline.
+        Execute the LangGraph pipeline.
 
         Args:
             incident: Incident received from API or Kafka.

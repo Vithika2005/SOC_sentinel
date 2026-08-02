@@ -21,9 +21,15 @@ class AgentRecommendationProducer:
         """
         Publish the final LangGraph output to Kafka.
         """
+
         self.producer.send(
             settings.KAFKA_PRODUCER_TOPIC,
             recommendation
         )
 
         self.producer.flush()
+
+        print("=" * 70)
+        print("RECOMMENDATION PUBLISHED")
+        print(f"Topic : {settings.KAFKA_PRODUCER_TOPIC}")
+        print("=" * 70)

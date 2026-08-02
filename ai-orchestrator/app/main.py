@@ -5,31 +5,40 @@ from fastapi import FastAPI
 
 from app.api.pipeline import router
 from app.config.config import settings
-from app.messaging.kafka_consumer import IncidentConsumer
+from app.messaging.kafka_consumer import OrchestratorKafkaConsumer
 
 
-consumer = IncidentConsumer()
+consumer = OrchestratorKafkaConsumer()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """
-    Start background services when FastAPI starts.
+    Starts the Kafka consumer in a background thread when the
+    AI Orchestrator starts.
     """
 
     consumer_thread = threading.Thread(
         target=consumer.start,
-        daemon=True
+        daemon=True,
     )
 
     consumer_thread.start()
 
+    print("=" * 60)
+    print("SentinelX AI Orchestrator Started")
+    print(f"Listening on Kafka Topic : {settings.KAFKA_CONSUMER_TOPIC}")
+    print("=" * 60)
+
     yield
+
+    print("Shutting down AI Orchestrator...")
 
 
 app = FastAPI(
-    title=settings.APP_NAME,
-    lifespan=lifespan
+    title="SentinelX AI Orchestrator",
+    version="1.0.0",
+    lifespan=lifespan,
 )
 
 app.include_router(router)

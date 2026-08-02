@@ -88,8 +88,8 @@ services:
 
     container_name: incident-service
 
-    env_file:
-      - ./incident-service/.env
+    # env_file:
+    #   - ./incident-service/.env
 
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
