@@ -1,0 +1,40 @@
+  ai-orchestrator:
+    build: ./ai-orchestrator
+    container_name: ai-orchestrator
+    env_file:
+      - ./sentinelx/ai-orchestrator/.env
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_INPUT_TOPIC: incidents
+      KAFKA_OUTPUT_TOPIC: agent-recommendations
+      RAG_SERVICE_URL: http://rag-service:8000
+      DIGITAL_TWIN_URL: http://digital-twin:8000
+      OLLAMA_BASE_URL: http://host.docker.internal:11434   # <-- new
+    ports:
+      - "8002:8000"
+    depends_on:
+      - kafka
+      - incident-service
+      - rag-service
+      - digital-twin
+    networks:
+      - sentinelx-net
+  
+  rag-service:
+    build: ./rag-service
+    container_name: rag-service
+    ports:
+      - "8001:8000"
+    networks:
+      - sentinelx-net
+  
+  neo4j:
+    image: neo4j:5.18.0
+    container_name: neo4j
+    ports:
+      - "7474:7474" # HTTP Browser
+      - "7687:7687" # Bolt Protocol
+    environment:
+      NEO4J_AUTH: neo4j/password123
+    networks:
+      - sentinelx-net

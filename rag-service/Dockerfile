@@ -11,6 +11,7 @@ RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTr
 
 COPY app ./app
 COPY playbooks ./playbooks
+COPY scripts ./scripts
 
 EXPOSE 8000
 
