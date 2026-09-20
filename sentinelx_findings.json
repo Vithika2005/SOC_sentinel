@@ -1,177 +1,6 @@
 [
   {
     "event_type": "security_finding",
-    "scanner": "gitleaks",
-    "type": "Secrets",
-    "rule_id": "hashicorp-tf-password",
-    "location": "enterprise/api-service/README.md:55",
-    "description": "HashiCorp Terraform password field",
-    "severity": "CRITICAL"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "gitleaks",
-    "type": "Secrets",
-    "rule_id": "hashicorp-tf-password",
-    "location": "enterprise/auth-service/README.md:55",
-    "description": "HashiCorp Terraform password field",
-    "severity": "CRITICAL"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "gitleaks",
-    "type": "Secrets",
-    "rule_id": "generic-api-key",
-    "location": "enterprise/auth-service/README.md:63",
-    "description": "Generic API Key",
-    "severity": "CRITICAL"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_24",
-    "description": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
-    "file": "/main.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_23",
-    "description": "Ensure every security group and rule has a description",
-    "file": "/main.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_382",
-    "description": "Ensure no security groups allow egress from 0.0.0.0:0 to port -1",
-    "file": "/main.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV2_AWS_5",
-    "description": "Ensure that Security Groups are attached to another resource",
-    "file": "/main.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV2_AWS_62",
-    "description": "Ensure S3 buckets should have event notifications enabled",
-    "file": "/network.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV2_AWS_62",
-    "description": "Ensure S3 buckets should have event notifications enabled",
-    "file": "/security.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV2_AWS_6",
-    "description": "Ensure that S3 bucket has a Public Access block",
-    "file": "/network.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV2_AWS_6",
-    "description": "Ensure that S3 bucket has a Public Access block",
-    "file": "/security.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_18",
-    "description": "Ensure the S3 bucket has access logging enabled",
-    "file": "/network.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_18",
-    "description": "Ensure the S3 bucket has access logging enabled",
-    "file": "/security.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_144",
-    "description": "Ensure that S3 bucket has cross-region replication enabled",
-    "file": "/network.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_144",
-    "description": "Ensure that S3 bucket has cross-region replication enabled",
-    "file": "/security.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_145",
-    "description": "Ensure that S3 buckets are encrypted with KMS by default",
-    "file": "/network.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "checkov",
-    "type": "IaC",
-    "rule_id": "CKV_AWS_145",
-    "description": "Ensure that S3 buckets are encrypted with KMS by default",
-    "file": "/security.tf",
-    "severity": "MEDIUM"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "semgrep",
-    "type": "SAST",
-    "rule_id": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
-    "file": "enterprise/legacy-admin/app/main.py",
-    "line": 23,
-    "severity": "WARNING"
-  },
-  {
-    "event_type": "security_finding",
-    "scanner": "semgrep",
-    "type": "SAST",
-    "rule_id": "python.flask.security.audit.debug-enabled.debug-enabled",
-    "file": "enterprise/legacy-admin/app/main.py",
-    "line": 23,
-    "severity": "WARNING"
-  },
-  {
-    "event_type": "security_finding",
     "scanner": "checkov",
     "type": "IaC",
     "rule_id": "CKV_K8S_21",
@@ -1087,5 +916,176 @@
     "description": "Minimize the admission of pods which lack an associated NetworkPolicy",
     "file": "/enterprise/kubernetes/legacy-deployment.yaml",
     "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_24",
+    "description": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_23",
+    "description": "Ensure every security group and rule has a description",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_382",
+    "description": "Ensure no security groups allow egress from 0.0.0.0:0 to port -1",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_5",
+    "description": "Ensure that Security Groups are attached to another resource",
+    "file": "/main.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_62",
+    "description": "Ensure S3 buckets should have event notifications enabled",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_62",
+    "description": "Ensure S3 buckets should have event notifications enabled",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_6",
+    "description": "Ensure that S3 bucket has a Public Access block",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV2_AWS_6",
+    "description": "Ensure that S3 bucket has a Public Access block",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_18",
+    "description": "Ensure the S3 bucket has access logging enabled",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_18",
+    "description": "Ensure the S3 bucket has access logging enabled",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_144",
+    "description": "Ensure that S3 bucket has cross-region replication enabled",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_144",
+    "description": "Ensure that S3 bucket has cross-region replication enabled",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_145",
+    "description": "Ensure that S3 buckets are encrypted with KMS by default",
+    "file": "/network.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "checkov",
+    "type": "IaC",
+    "rule_id": "CKV_AWS_145",
+    "description": "Ensure that S3 buckets are encrypted with KMS by default",
+    "file": "/security.tf",
+    "severity": "MEDIUM"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "gitleaks",
+    "type": "Secrets",
+    "rule_id": "hashicorp-tf-password",
+    "location": "enterprise/api-service/README.md:55",
+    "description": "HashiCorp Terraform password field",
+    "severity": "CRITICAL"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "gitleaks",
+    "type": "Secrets",
+    "rule_id": "hashicorp-tf-password",
+    "location": "enterprise/auth-service/README.md:55",
+    "description": "HashiCorp Terraform password field",
+    "severity": "CRITICAL"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "gitleaks",
+    "type": "Secrets",
+    "rule_id": "generic-api-key",
+    "location": "enterprise/auth-service/README.md:63",
+    "description": "Generic API Key",
+    "severity": "CRITICAL"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "semgrep",
+    "type": "SAST",
+    "rule_id": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
+    "file": "enterprise/legacy-admin/app/main.py",
+    "line": 23,
+    "severity": "WARNING"
+  },
+  {
+    "event_type": "security_finding",
+    "scanner": "semgrep",
+    "type": "SAST",
+    "rule_id": "python.flask.security.audit.debug-enabled.debug-enabled",
+    "file": "enterprise/legacy-admin/app/main.py",
+    "line": 23,
+    "severity": "WARNING"
   }
 ]
